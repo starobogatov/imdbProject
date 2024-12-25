@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Imdb movie award test suite" verbose="2" annotations="JDK" parallel="tests"
+       configfailurepolicy="continue" group-by-instances="true">
+    <test name="Imdb award movie found sucessfully" enabled="true">
+        <classes>
+            <class name="imdb.AwardsWinningMovieTest">
+                <methods>
+                    <include name="searchForAwardWinningMovie"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

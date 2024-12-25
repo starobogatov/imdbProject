@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def versions = [
+        testNgVersion       : '7.10.2',
+        selenideVersion     : '7.6.0',
+        logbackVersion      : '1.5.15'
+]
+
+dependencies {
+    implementation group: 'org.testng', name: 'testng', version: "${versions.testNgVersion}"
+    implementation group: 'com.codeborne', name: 'selenide', version: "${versions.selenideVersion}"
+    implementation group: 'com.codeborne', name: 'selenide-testng', version: "${versions.selenideVersion}"
+
+    //logging
+    implementation 'ch.qos.logback:logback-classic:1.5.15'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: "${versions.logbackVersion}"
+}
+
+test {
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        exceptionFormat = 'full'
+    }
+}
